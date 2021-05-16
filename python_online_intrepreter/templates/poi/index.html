@@ -1,10 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Main page of interpreter</title>
+    <link rel="stylesheet"  href={% static "poi/css/style.css"  %}>
+
+    {{ form.media }}
 </head>
+
 <body>
-<h1>Main page of my online intrepreter</h1>>
+<h3>Main page of my online interpreter</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <div id="main_windows">{{ form.as_p }}</div>
+    <div class="form-error">{{ form.user_input.errors }} </div>
+    <button>RUN</button>
+</form>
 </body>
 </html>

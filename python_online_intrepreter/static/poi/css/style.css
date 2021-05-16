@@ -1,0 +1,43 @@
+#main_windows {
+  display: flex;
+  height: 96vh;
+  box-sizing: content-box;
+  border-radius: 2em;
+  gap: 20px;
+  background-color: aliceblue;
+  font-size: 15pt;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: aliceblue;
+  font-size: 15pt
+}
+
+button {
+  margin: .8em auto;
+  width: 8em;
+  height: 3em;
+  border-radius: 2em;
+  position: absolute;
+  right: 15vw;
+  top: 7vw;
+  background-color: lawngreen;
+  font-size: 10pt
+}
+
+button:hover {
+  background-color: green;
+}
+
+.errorlist {
+  position: absolute;
+  top: 23vh;
+  right: 6vw;
+  color: red;
+  font-size: 17pt;
+}
