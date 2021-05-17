@@ -8,7 +8,10 @@ permissions driven)
 
 The program is executed inside the docker container
 # To run application run the following command in while at the root of the directory project:
-**to build docker container
+**to build docker container**
+
 ```docker-compose build --no-cache```
-**to run docker container 
+
+**to run docker container**
+
 ```docker compose up```
