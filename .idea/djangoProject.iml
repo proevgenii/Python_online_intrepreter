@@ -16,6 +16,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/python_online_intrepreter" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/djangoProject" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -25,7 +26,8 @@
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/../djangoProject\templates" />
+        <option value="$MODULE_DIR$/templates" />
+        <option value="$MODULE_DIR$/python_online_intrepreter/templates" />
       </list>
     </option>
   </component>

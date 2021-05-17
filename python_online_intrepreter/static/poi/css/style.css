@@ -1,11 +1,12 @@
 #main_windows {
   display: flex;
-  height: 96vh;
+  height: 90vh;
   box-sizing: content-box;
   border-radius: 2em;
-  gap: 20px;
+  gap: 13px;
   background-color: aliceblue;
   font-size: 15pt;
+
 }
 
 body {
@@ -15,17 +16,18 @@ body {
   height: 100vh;
   position: relative;
   background-color: aliceblue;
-  font-size: 15pt
+  font-size: 15pt;
+  top: 10px;
 }
 
 button {
-  margin: .8em auto;
+  position: absolute;
+  margin: 1em auto;
   width: 8em;
   height: 3em;
   border-radius: 2em;
-  position: absolute;
-  right: 15vw;
-  top: 7vw;
+  right: 7vw;
+  top: 5vw;
   background-color: lawngreen;
   font-size: 10pt
 }
@@ -36,8 +38,25 @@ button:hover {
 
 .errorlist {
   position: absolute;
-  top: 23vh;
-  right: 6vw;
+  bottom: 10vh;
+  left: 4vw;
   color: red;
   font-size: 17pt;
+  border-radius: 2em;
+}
+
+
+.ace_gutter > div{
+    background-color: #05688d;
+
+}
+
+.django-ace-widget > div  {
+    position: absolute;
+    top: 1vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1em;
+    background-color: #b3e3df;
 }
