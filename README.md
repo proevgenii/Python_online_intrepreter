@@ -6,12 +6,11 @@ Thats simple web app which implements python interpreter with
 permissions driven)
 * Ability to run multiple programs at the same time
 
-The program is executed inside the docker container
+The program is executed inside the docker container with gunicorn and nginx
 # To run application run the following command in while at the root of the directory project:
 **to build docker container**
-
 ```docker-compose build --no-cache```
-
 **to run docker container**
-
 ```docker compose up```
+**or in one command:**
+```docker compose up --build```
