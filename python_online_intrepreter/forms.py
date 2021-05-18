@@ -55,18 +55,20 @@ class PythonOnlineInterpreterFormAdmin(forms.Form):
         label=False,
     )
 
-    optional_input = forms.CharField(widget=AceWidget(mode="python",
-                                                      theme="xcode",
-                                                      width="40vw",
-                                                      height="10vh",
-                                                      fontsize="12pt",
-                                                      toolbar=False,
-                                                      showgutter=False,
-                                                      ),
-                                     initial="#OPTIONAL Your input here",
-                                     label=False,
-                                     required=False,
-                                     )
+    optional_input = forms.CharField(
+        widget=AceWidget(
+            mode="python",
+            theme="xcode",
+            width="40vw",
+            height="10vh",
+            fontsize="12pt",
+            toolbar=False,
+            showgutter=False,
+        ),
+        initial="#OPTIONAL Your input here",
+        label=False,
+        required=False,
+    )
 
     python_output = forms.CharField(
         widget=AceWidget(
@@ -78,11 +80,9 @@ class PythonOnlineInterpreterFormAdmin(forms.Form):
             fontsize="12pt",
             toolbar=False,
             showgutter=False,
-
         ),
         required=False,
         label=False,
-
     )
 
     timeout = forms.IntegerField(
@@ -113,23 +113,25 @@ class PythonOnlineInterpreterFormUsual(PythonOnlineInterpreterFormAdmin):
         ],
     )
 
-    optional_input = forms.CharField(widget=AceWidget(mode="python",
-                                                      theme="xcode",
-                                                      width="40vw",
-                                                      height="10vh",
-                                                      fontsize="12pt",
-                                                      toolbar=False,
-                                                      showgutter=False,
-                                                      ),
-                                     initial="#OPTIONAL Your input here",
-                                     label=False,
-                                     required=False,
-                                     validators=[
-                                         validator_open,
-                                         validator_exec,
-                                         validator_eval,
-                                         validator_subprocess,
-                                         validator_os,
-                                         validator_builtins,
-                                     ],
-                                     )
+    optional_input = forms.CharField(
+        widget=AceWidget(
+            mode="python",
+            theme="xcode",
+            width="40vw",
+            height="10vh",
+            fontsize="12pt",
+            toolbar=False,
+            showgutter=False,
+        ),
+        initial="#OPTIONAL Your input here",
+        label=False,
+        required=False,
+        validators=[
+            validator_open,
+            validator_exec,
+            validator_eval,
+            validator_subprocess,
+            validator_os,
+            validator_builtins,
+        ],
+    )
