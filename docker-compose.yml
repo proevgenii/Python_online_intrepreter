@@ -1,12 +1,22 @@
 version: "3.8"
 
 services:
-  web:
+  django_gunicorn:
+    volumes:
+      - static:/static
     build:
-      context: ./
-      dockerfile: Dockerfile
-
+      context: .
     ports:
       - "8000:8080"
+  nginx:
+    build: ./nginx
     volumes:
-    - ./:/usr/srs/app
+      - static:/static
+    ports:
+    - "80:80"
+    depends_on:
+      - django_gunicorn
+
+
+volumes:
+  static:

@@ -16,13 +16,13 @@ def get_form_admin(request, form):
     if form.is_valid():
         user_input = form.cleaned_data["user_input"]
         timeout = form.cleaned_data["timeout"]
-
+        optional_input = form.cleaned_data["optional_input"]
         try:
             result = subprocess.run(
                 [sys.executable, "-c", user_input],
                 text=True,
                 capture_output=True,
-                input=user_input,
+                input=optional_input,
                 timeout=timeout,
             )
             out = result.stderr if result.stderr else result.stdout
@@ -30,7 +30,7 @@ def get_form_admin(request, form):
             out = f"RuntimeError('Your time {err.timeout} is expired')"
 
         form = PythonOnlineInterpreterFormAdmin(
-            {"python_output": out, "user_input": user_input, "timeout": timeout}
+            {"python_output": out, "user_input": user_input, "timeout": timeout, 'optional_input': optional_input}
         )
 
         return render(
@@ -54,13 +54,13 @@ def get_form_usual(request, form):
     if form.is_valid():
         user_input = form.cleaned_data["user_input"]
         timeout = form.cleaned_data["timeout"]
-
+        optional_input = form.cleaned_data["optional_input"]
         try:
             result = subprocess.run(
                 [sys.executable, "-c", user_input],
                 text=True,
                 capture_output=True,
-                input=user_input,
+                input=optional_input,
                 timeout=timeout,
             )
             out = result.stderr if result.stderr else result.stdout
@@ -68,7 +68,7 @@ def get_form_usual(request, form):
             out = f"RuntimeError('Your time {err.timeout} is expired')"
 
         form = PythonOnlineInterpreterFormUsual(
-            {"python_output": out, "user_input": user_input, "timeout": timeout}
+            {"python_output": out, "user_input": user_input, "timeout": timeout, 'optional_input': optional_input}
         )
 
         return render(
@@ -108,9 +108,6 @@ class Main(View):
     @staticmethod
     def post(request, *args, **kwargs):
         if request.user.is_authenticated:
-            form = PythonOnlineInterpreterFormAdmin(request.POST)
-            return get_form_admin(request, form)
-
+            return get_form_admin(request, PythonOnlineInterpreterFormAdmin(request.POST))
         else:
-            form = PythonOnlineInterpreterFormUsual(request.POST)
-            return get_form_usual(request, form)
+            return get_form_usual(request, PythonOnlineInterpreterFormUsual(request.POST))

@@ -1,8 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -e
-python manage.py  makemigrations --noinput
-python manage.py  migrate --noinput
-python manage.py collectstatic --noinput
+python manage.py migrate --no-input
+python manage.py collectstatic --no-input
 
-exec gunicorn djangoProject.wsgi:application -b 0.0.0.0:8080 --reload
+gunicorn djangoProject.wsgi:application --bind 0.0.0.0:8080

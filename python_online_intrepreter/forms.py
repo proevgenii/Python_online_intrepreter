@@ -46,7 +46,7 @@ class PythonOnlineInterpreterFormAdmin(forms.Form):
             mode="python",
             theme="xcode",
             width="40vw",
-            height="90vh",
+            height="80vh",
             fontsize="12pt",
             toolbar=False,
             showgutter=True,
@@ -54,6 +54,19 @@ class PythonOnlineInterpreterFormAdmin(forms.Form):
         initial="Your code here",
         label=False,
     )
+
+    optional_input = forms.CharField(widget=AceWidget(mode="python",
+                                                      theme="xcode",
+                                                      width="40vw",
+                                                      height="10vh",
+                                                      fontsize="12pt",
+                                                      toolbar=False,
+                                                      showgutter=False,
+                                                      ),
+                                     initial="#OPTIONAL Your input here",
+                                     label=False,
+                                     required=False,
+                                     )
 
     python_output = forms.CharField(
         widget=AceWidget(
@@ -83,7 +96,7 @@ class PythonOnlineInterpreterFormUsual(PythonOnlineInterpreterFormAdmin):
             mode="python",
             theme="xcode",
             width="40vw",
-            height="90vh",
+            height="80vh",
             fontsize="12pt",
             toolbar=False,
             showgutter=True,
@@ -99,3 +112,24 @@ class PythonOnlineInterpreterFormUsual(PythonOnlineInterpreterFormAdmin):
             validator_builtins,
         ],
     )
+
+    optional_input = forms.CharField(widget=AceWidget(mode="python",
+                                                      theme="xcode",
+                                                      width="40vw",
+                                                      height="10vh",
+                                                      fontsize="12pt",
+                                                      toolbar=False,
+                                                      showgutter=False,
+                                                      ),
+                                     initial="#OPTIONAL Your input here",
+                                     label=False,
+                                     required=False,
+                                     validators=[
+                                         validator_open,
+                                         validator_exec,
+                                         validator_eval,
+                                         validator_subprocess,
+                                         validator_os,
+                                         validator_builtins,
+                                     ],
+                                     )

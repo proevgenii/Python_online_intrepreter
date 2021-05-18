@@ -57,6 +57,24 @@ button:hover {
     left: 0;
     right: 0;
     bottom: 0;
+    border-radius: .7em;
+    background-color: #b3e3df;
+}
+
+.id #id_optional_input  {
+    position: absolute;
+    top: 1vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-radius: 1em;
     background-color: #b3e3df;
+}
+
+#main_windows > div:nth-child(5){
+    position:absolute;
+    top: 82vh;
+    left : 10px;
+
+
 }
