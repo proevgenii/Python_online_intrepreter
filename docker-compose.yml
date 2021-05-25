@@ -1,22 +1,23 @@
-version: "3.8"
+version: '3.7'
 
 services:
-  django_gunicorn:
-    volumes:
-      - static:/static
+  app:
     build:
       context: .
-    ports:
-      - "8000:8080"
-  nginx:
-    build: ./nginx
     volumes:
-      - static:/static
-    ports:
-    - "80:80"
-    depends_on:
-      - django_gunicorn
+      - static_data:/vol/web
+    environment:
+      - SECRET_KEY=key123213
 
+  nginx:
+    build:
+      context: ./nginx
+    volumes:
+      - static_data:/vol/static
+    ports:
+      - "8080:8080"
+    depends_on:
+      - app
 
 volumes:
-  static:
+  static_data:
